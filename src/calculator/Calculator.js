@@ -32,7 +32,7 @@ export default class Calculator {
 	}
 
 	set number(newNumber) {
-		if (isNaN(newNumber)) {
+		if (isNaN(newNumber) || newNumber === Infinity) {
 			this.value = "¯\\_(ツ)_/¯";
 			return;
 		}
@@ -43,7 +43,7 @@ export default class Calculator {
 			newValue = newNumber.toLocaleString("en-US", { notation: "scientific" });
 			this.shouldClearValue = true;
 		}
-
+		
 		this.value = newValue.replace("-", "−");
 	}
 
