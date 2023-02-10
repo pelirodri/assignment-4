@@ -79,11 +79,11 @@ export default class CalculatorButton extends HTMLButtonElement {
 	}
 
 	#setUpEvents() {
-		this.onmouseenter = this.ontouchstart = this.#handleMouseEnter;
-		this.onmouseleave = this.ontouchend = this.#handleMouseLeave;
-
-		this.onmousedown = this.ontouchstart = this.#scaleUp;
-		this.onmouseup = this.ontouchend = this.#scaleBackDown;
+		this["ontouchstart" in window ? "ontouchstart" : "onmouseenter"] = this.#handleButtonPressed;
+		this["ontouchend" in window ? "ontouchend" : "onmouseleave"] = this.#handleButtonReleased;
+		
+		this.onmousedown = this.#scaleUp;
+		this.onmouseup = this.#scaleBackDown;
 
 		this.#darkModeMediaQuery.onchange = () => {
 			this.#updateColors();
@@ -95,14 +95,14 @@ export default class CalculatorButton extends HTMLButtonElement {
 		this.style.color = this.#darkModeMediaQuery.matches ? "#fff" : "#000";
 	}
 
-	#handleMouseEnter() {
+	#handleButtonPressed() {
 		if (!this.#isActive) {
 			this.#highlight();
 		}
 	}
 
-	#handleMouseLeave() {
-		if (!this.#isActive) {
+	#handleButtonReleased() {
+		if (!this.#isActive ) {
 			this.#stopHighlighting();
 		}
 	}
