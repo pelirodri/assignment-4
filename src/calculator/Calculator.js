@@ -40,7 +40,7 @@ export default class Calculator {
 		let newValue = String(newNumber.roundToPrecision(Calculator.FloatingPointPrecision));
 
 		if (newValue.length > this.#maxValueLength) {
-			newValue = newNumber.toLocaleString("en-US", { useGrouping: true, notation: "scientific" });
+			newValue = newNumber.toLocaleString("en-US", { notation: "scientific" });
 			this.shouldClearValue = true;
 		}
 
