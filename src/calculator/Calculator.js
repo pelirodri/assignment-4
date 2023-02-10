@@ -32,6 +32,11 @@ export default class Calculator {
 	}
 
 	set number(newNumber) {
+		if (isNaN(newNumber)) {
+			this.value = "Undefined";
+			return;
+		}
+
 		let newValue = String(newNumber.roundToPrecision(Calculator.FloatingPointPrecision));
 
 		if (newValue.length > this.#maxValueLength) {

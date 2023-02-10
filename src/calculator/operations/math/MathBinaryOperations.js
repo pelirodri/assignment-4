@@ -34,7 +34,7 @@ export class DivideMathOperation extends MathBinaryOperation {
 	
 	execute() {
 		if (this.rightOperand === 0) {
-			this.calculator.value = "Undefined";
+			this.calculator.number = undefined;
 			this.calculator.shouldClearValue = true;
 		} else {
 			this.calculator.number = this.leftOperand / this.rightOperand;
