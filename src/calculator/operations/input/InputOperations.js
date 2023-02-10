@@ -18,7 +18,7 @@ export class DecimalInputOperation extends InputOperation {
 
 	execute() {
 		if (this.calculator.value.length < (this.maxValueLength - 1) &&
-			(this.calculator.value.indexOf(".") === -1 && this.calculator.number !== 0)) {
+			(this.calculator.value.indexOf(".") === -1 && this.calculator.number)) {
 			this.calculator.value += ".";
 		}
 	}
@@ -28,7 +28,7 @@ export class SignInputOperation extends InputOperation {
 	symbol = "±";
 	
 	execute() {
-		if (this.calculator.value.length < this.maxValueLength && this.calculator.number !== 0) {
+		if (this.calculator.value.length < this.maxValueLength && this.calculator.number) {
 			this.calculator.number *= -1;
 		}
 	}
