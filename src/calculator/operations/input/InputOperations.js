@@ -8,7 +8,11 @@ export class DigitInputOperation extends InputOperation {
 		}
 
 		if (this.calculator.value.length < this.maxValueLength) {
-			this.calculator.number = Number(this.calculator.value + this.symbol);
+			if (this.calculator.value === "0") {
+				this.calculator.value = this.symbol;
+			} else {
+				this.calculator.value = this.calculator.value + this.symbol;
+			}
 		}
 	}
 }
@@ -18,7 +22,7 @@ export class DecimalInputOperation extends InputOperation {
 
 	execute() {
 		if (this.calculator.value.length < (this.maxValueLength - 1) &&
-			(this.calculator.value.indexOf(".") === -1 && this.calculator.number)) {
+			(this.calculator.value.indexOf(".") === -1 && !isNaN(this.calculator.number))) {
 			this.calculator.value += ".";
 		}
 	}
