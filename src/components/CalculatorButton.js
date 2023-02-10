@@ -79,8 +79,8 @@ export default class CalculatorButton extends HTMLButtonElement {
 	}
 
 	#setUpEvents() {
-		this.onmouseenter = this.#handleMouseEnter;
-		this.onmouseleave = this.#handleMouseLeave;
+		this.onmouseenter = this.ontouchstart = this.#handleMouseEnter;
+		this.onmouseleave = this.ontouchend = this.#handleMouseLeave;
 
 		this.onmousedown = this.ontouchstart = this.#scaleUp;
 		this.onmouseup = this.ontouchend = this.#scaleBackDown;
