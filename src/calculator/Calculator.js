@@ -33,7 +33,7 @@ export default class Calculator {
 
 	set number(newNumber) {
 		if (isNaN(newNumber)) {
-			this.value = "Undefined";
+			this.value = "¯\\_(ツ)_/¯";
 			return;
 		}
 
