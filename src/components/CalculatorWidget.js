@@ -51,15 +51,16 @@ export default class CalculatorWidget extends HTMLElement {
 
 	get #inputOperations() {
 		return [
-			...this.#createDigitInputOperationsFromSymbols(["7", "8", "9", "4", "5", "6", "1", "2", "3", "0"]),
-			OperationFactory.createInputOperationForCalculator(
-				this.#calculator,
-				InputOperationType.decimal,
-				CalculatorWidget.#maxValueLength
-			),
+			...this.#createDigitInputOperationsFromSymbols(["7", "8", "9", "4", "5", "6", "1", "2", "3"]),
 			OperationFactory.createInputOperationForCalculator(
 				this.#calculator,
 				InputOperationType.sign,
+				CalculatorWidget.#maxValueLength
+			),
+			...this.#createDigitInputOperationsFromSymbols(["0"]),
+			OperationFactory.createInputOperationForCalculator(
+				this.#calculator,
+				InputOperationType.decimal,
 				CalculatorWidget.#maxValueLength
 			)
 		];
