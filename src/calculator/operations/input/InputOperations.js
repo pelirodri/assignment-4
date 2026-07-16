@@ -11,7 +11,7 @@ export class DigitInputOperation extends InputOperation {
 			if (this.calculator.value === "0") {
 				this.calculator.value = this.symbol;
 			} else {
-				this.calculator.value = this.calculator.value + this.symbol;
+				this.calculator.value += this.symbol;
 			}
 		}
 	}
