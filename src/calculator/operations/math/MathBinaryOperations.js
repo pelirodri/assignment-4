@@ -12,6 +12,7 @@ export class AddMathOperation extends MathBinaryOperation {
 }
 
 export class SubtractMathOperation extends MathBinaryOperation {
+	// Minus sign; not hyphen
 	symbol = "−";
 	
 	execute() {

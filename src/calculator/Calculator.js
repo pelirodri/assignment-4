@@ -28,6 +28,7 @@ export default class Calculator {
 	}
 
 	get number() {
+		// Convert minus sign to hyphen
 		return Number(this.value.replace("−", "-"));
 	}
 
@@ -43,7 +44,8 @@ export default class Calculator {
 			newValue = newNumber.toLocaleString("en-US", { notation: "scientific" });
 			this.shouldClearValue = true;
 		}
-		
+	
+		// Convert hyphen to minus sign
 		this.value = newValue.replace("-", "−");
 	}
 

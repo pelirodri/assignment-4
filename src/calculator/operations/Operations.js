@@ -26,6 +26,7 @@ export class DeleteOperation extends Operation {
 
 	execute() {
 		if (this.calculator.number !== 0) {
+			// Convert minus sign to hyphen
 			this.calculator.number = Number(this.calculator.value.slice(0, -1).replace("−", "-")) || 0;
 
 			if (this.calculator.number === 0) {
